@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Formulário HTML</title>
+</head>
+<body>
+    <header>
+        <h3>Formulários e Inputs</h3>
+    </header>
+
+    <main>
+            <form id="registerForm" method="post">
+                <label for="nome"> Nome completo:</label>
+                <input type="text" id="nome" name="nome" required />
+                <br>
+                <label for="email">Endereço de email:</label>
+                <input type="email" id="email" name="email"  />
+                <br>
+                <label for="senha">Informe sua senha:</label>
+                <input 
+                type="password" 
+                id="senha" 
+                name="senha" 
+                required 
+                minlength="8" 
+                title="A senha deve ter no minimo 8 caracteres"
+                />
+                <br>
+                <label for="mesnsagem">Informe sua mensagem:</label>
+                <br>
+                <textarea id="mensagem" name="mensagem" rows="4" cols="30"></textarea>
+                <br>
+                <label for="evento">Selecione o evento escolhido:</label>
+                <!-- Tag de seletor, ao selecionar uma das opções o value da option é atribuido ao nome do select. -->
+                <!-- key:value -->
+                <!-- evento:teatro -->
+                <select id="evento" name="evento" >   
+                    <option value="rock">Show de Rock</option>
+                    <option value="modao">Sertanejo</option> 
+                    <option value="teatro">Teatro: Comédia</option>    
+                </select>
+                <br>
+                <!-- Input checkbox -> Opção de multipla escolha -->
+                <label for="termos">
+                    <input type="checkbox" id="termos" name="termos" required>
+                    Aceito os termos de uso.
+                </label>
+                <br>
+                <!-- Input type radio - Escolha única --> 
+                <label><input type="radio" name="pagamento" value="pix"/>Pix</label>
+                <label><input type="radio" name="pagamento" value="cartao"/>Cartão de Crédito</label>
+                <br>
+                <input type="date"/>
+                <br>
+                <input type="file"/>
+                <br>
+                <input 
+                type="text" 
+                id="cpd" 
+                name="cpf" 
+                placeholder="000.000.000-00" 
+                required
+                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                title="Formato esperado: 000.000.000-00"
+                />
+                <!-- Para o type radio funcionar ambos os uputs devem compartilhar o mesmo name -->
+                <br>
+                <br>
+                <input type="submit" value="Cadastrar">     
+                <button type="button" onclick="">Cancelar</button>           
+            </form>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Pedro Sigismundo</p>
+    </footer>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Impede o comportamento padrão de envio de formulário (recarregamento)
+            const nome = document.getElementById('nome').value;
+            alert('Olá, '+nome+' cadastro enviado com sucesso');
+        })
+    </script>
+
+</body>
+</html>
